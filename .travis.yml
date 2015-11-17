@@ -19,6 +19,13 @@ before_script:
 script:
   - make all
 
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: make release
+  on:
+    branch: PypiTravisDeploy
+
 notifications:
   slack: cloudet:rMfRKhvsbZuCIRZpTct3kBI4#urth-widgets
   email:
@@ -28,3 +35,4 @@ notifications:
 branches:
   only:
     - master
+    - PypiTravisDeploy
